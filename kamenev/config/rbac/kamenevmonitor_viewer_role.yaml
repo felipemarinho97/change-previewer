@@ -1,0 +1,20 @@
+# permissions for end users to view kamenevmonitors.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kamenevmonitor-viewer-role
+rules:
+- apiGroups:
+  - change-previewer.com.github.felipemarinho97
+  resources:
+  - kamenevmonitors
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - change-previewer.com.github.felipemarinho97
+  resources:
+  - kamenevmonitors/status
+  verbs:
+  - get

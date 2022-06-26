@@ -1,0 +1,24 @@
+# permissions for end users to edit kamenevmonitors.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kamenevmonitor-editor-role
+rules:
+- apiGroups:
+  - change-previewer.com.github.felipemarinho97
+  resources:
+  - kamenevmonitors
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - change-previewer.com.github.felipemarinho97
+  resources:
+  - kamenevmonitors/status
+  verbs:
+  - get

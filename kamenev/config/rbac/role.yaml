@@ -1,0 +1,63 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - deployments/status
+  verbs:
+  - get
+- apiGroups:
+  - change-previewer.com.github.felipemarinho97
+  resources:
+  - kamenevmonitors
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - change-previewer.com.github.felipemarinho97
+  resources:
+  - kamenevmonitors/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - change-previewer.com.github.felipemarinho97
+  resources:
+  - kamenevmonitors/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - deployment.apps
+  resources:
+  - deployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch

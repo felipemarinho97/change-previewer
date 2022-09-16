@@ -1,0 +1,6 @@
+apiVersion: change-previewer.com.github.felipemarinho97/v1
+kind: KamenevMonitor
+metadata:
+  name: kamenevmonitor-sample
+spec:
+  maxLifeTime: 60 # in seconds

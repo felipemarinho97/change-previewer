@@ -1,0 +1,16 @@
+domain: com.github.felipemarinho97
+layout:
+- go.kubebuilder.io/v3
+projectName: kamenev
+repo: com.github.felipemarinho97/kamenev
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: com.github.felipemarinho97
+  group: change-previewer
+  kind: KamenevMonitor
+  path: com.github.felipemarinho97/kamenev/api/v1
+  version: v1
+version: "3"

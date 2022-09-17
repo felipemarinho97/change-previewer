@@ -1,6 +1,26 @@
 # change-previewer
 A tool for assisting the code review process through ephemeral deploys
 
+# Installation
+
+Add the kamenev controller to your cluster:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/felipemarinho97/change-previewer/main/kamenev/kamenev.yaml
+```
+
+This will provide the kamenev controller with the necessary permissions to watch for changes in the kubernetes resources. Check if the controller is running:
+
+```bash
+kubectl get all -n kamenev-system
+```
+
+Check if the CRD was created:
+
+```bash
+kubectl get crd | grep "change-previewer"
+```
+
 # Usage
 
 
@@ -28,24 +48,10 @@ metadata:
 
 # How it works
 
-The change-previewer will watch for changes in the kubernetes resources and will schedule a deletion of the resource after the time specified in the annotation `com.github.felipemarinho97.change-previewer/timeout` (default: 30 minutes).
+The change-previewer will watch for changes in the kubernetes resources and will schedule a deletion of the resource after the time specified in the spec `maxLifeTime` (default: 30 minutes) of your `KamenevMonitor` resource.
 
-# Installation
-
-Add the kamenev controller to your cluster:
+Deploy a `nginx` sample to test it out:
 
 ```bash
-kubectl apply -f kamenev/kamenev.yaml
-```
-
-This will provide the kamenev controller with the necessary permissions to watch for changes in the kubernetes resources. Check if the controller is running:
-
-```bash
-kubectl get all -n kamenev-system
-```
-
-Check if the CRD was created:
-
-```bash
-kubectl get crd | grep "change-previewer"
+kubectl apply -f https://raw.githubusercontent.com/felipemarinho97/change-previewer/main/kamenev/nginx.yaml
 ```

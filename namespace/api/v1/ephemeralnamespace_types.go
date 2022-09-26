@@ -26,16 +26,16 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// NamespaceSpec defines the desired state of Namespace
-type NamespaceSpec struct {
+// EphemeralNamespaceSpec defines the desired state of EphemeralNamespace
+type EphemeralNamespaceSpec struct {
 	// Template is the namespace template
 	Template corev1.NamespaceSpec `json:"template,omitempty"`
 	// Maximum time a delployment is allowed to be running before its destroyed
 	MaxLifeTime time.Duration `json:"maxLifeTime,omitempty"`
 }
 
-// NamespaceStatus defines the observed state of Namespace
-type NamespaceStatus struct {
+// EphemeralNamespaceStatus defines the observed state of EphemeralNamespace
+type EphemeralNamespaceStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
@@ -44,24 +44,24 @@ type NamespaceStatus struct {
 //+kubebuilder:subresource:status
 //+kubebuilder:resource:scope=Cluster
 
-// Namespace is the Schema for the namespaces API
-type Namespace struct {
+// EphemeralNamespace is the Schema for the ephemeralnamespaces API
+type EphemeralNamespace struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   NamespaceSpec   `json:"spec,omitempty"`
-	Status NamespaceStatus `json:"status,omitempty"`
+	Spec   EphemeralNamespaceSpec   `json:"spec,omitempty"`
+	Status EphemeralNamespaceStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// NamespaceList contains a list of Namespace
-type NamespaceList struct {
+// EphemeralNamespaceList contains a list of EphemeralNamespace
+type EphemeralNamespaceList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []Namespace `json:"items"`
+	Items           []EphemeralNamespace `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&Namespace{}, &NamespaceList{})
+	SchemeBuilder.Register(&EphemeralNamespace{}, &EphemeralNamespaceList{})
 }

@@ -6,11 +6,18 @@ repo: change-previewer.github.com/namespace
 resources:
 - api:
     crdVersion: v1
-    namespaced: true
   controller: true
   domain: change-previewer.github.io
-  group: change-previewer.github.io
+  group: v1
   kind: Namespace
+  path: change-previewer.github.com/namespace/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+  controller: true
+  domain: change-previewer.github.io
+  group: v1
+  kind: EphemeralNamespace
   path: change-previewer.github.com/namespace/api/v1
   version: v1
 version: "3"

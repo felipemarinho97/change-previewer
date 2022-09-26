@@ -1,0 +1,9 @@
+apiVersion: v1.change-previewer.github.io/v1
+kind: EphemeralNamespace
+metadata:
+  name: enamespace-sample
+  labels:
+    name: enamespace-sample
+spec:
+  # TODO(user): Add fields here
+  maxLifeTime: 15

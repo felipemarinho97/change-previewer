@@ -1,20 +1,24 @@
-# permissions for end users to view namespaces.
+# permissions for end users to edit ephemeralnamespaces.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: namespace-viewer-role
+  name: ephemeralnamespace-editor-role
 rules:
 - apiGroups:
   - v1.change-previewer.github.io
   resources:
-  - namespaces
+  - ephemeralnamespaces
   verbs:
+  - create
+  - delete
   - get
   - list
+  - patch
+  - update
   - watch
 - apiGroups:
   - v1.change-previewer.github.io
   resources:
-  - namespaces/status
+  - ephemeralnamespaces/status
   verbs:
   - get

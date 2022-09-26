@@ -5,7 +5,7 @@ metadata:
   name: namespace-editor-role
 rules:
 - apiGroups:
-  - change-previewer.github.io.change-previewer.github.io
+  - v1.change-previewer.github.io
   resources:
   - namespaces
   verbs:
@@ -17,7 +17,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - change-previewer.github.io.change-previewer.github.io
+  - v1.change-previewer.github.io
   resources:
   - namespaces/status
   verbs:

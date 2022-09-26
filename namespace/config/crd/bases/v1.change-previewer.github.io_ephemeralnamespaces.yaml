@@ -5,20 +5,21 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.9.2
   creationTimestamp: null
-  name: namespaces.change-previewer.github.io.change-previewer.github.io
+  name: ephemeralnamespaces.v1.change-previewer.github.io
 spec:
-  group: change-previewer.github.io.change-previewer.github.io
+  group: v1.change-previewer.github.io
   names:
-    kind: Namespace
-    listKind: NamespaceList
-    plural: namespaces
-    singular: namespace
-  scope: Namespaced
+    kind: EphemeralNamespace
+    listKind: EphemeralNamespaceList
+    plural: ephemeralnamespaces
+    singular: ephemeralnamespace
+  scope: Cluster
   versions:
   - name: v1
     schema:
       openAPIV3Schema:
-        description: Namespace is the Schema for the namespaces API
+        description: EphemeralNamespace is the Schema for the ephemeralnamespaces
+          API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -33,7 +34,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: NamespaceSpec defines the desired state of Namespace
+            description: EphemeralNamespaceSpec defines the desired state of EphemeralNamespace
             properties:
               maxLifeTime:
                 description: Maximum time a delployment is allowed to be running before
@@ -55,7 +56,7 @@ spec:
                 type: object
             type: object
           status:
-            description: NamespaceStatus defines the observed state of Namespace
+            description: EphemeralNamespaceStatus defines the observed state of EphemeralNamespace
             type: object
         type: object
     served: true
